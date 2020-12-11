@@ -5,6 +5,7 @@ RUN apt-get update \
     apt-transport-https \
     ca-certificates \
     curl \
+    default-jre-headless \
     dirmngr \
     dumb-init \
     htop \

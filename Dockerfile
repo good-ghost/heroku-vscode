@@ -17,7 +17,7 @@ RUN apt-get update \
     ssh \
     sudo \
     vim \
-  && mkdir -p /usr/share/man/man1
+  && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
     default-jre-headless \
     openjdk-11-jre \

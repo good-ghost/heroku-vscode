@@ -17,6 +17,7 @@ RUN apt-get update \
     ssh \
     sudo \
     vim \
+    xz \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
     default-jre-headless \
@@ -42,8 +43,12 @@ RUN curl -SsL https://github.com/boxboat/fixuid/releases/download/v0.4/fixuid-0.
     
 RUN cd /tmp && \
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
-  apt-get install -y nodejs
-  
+  apt-get install -y nodejs && \
+  curl -SsL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz && \
+  mkdir -p /tmp/sfdx && \
+  tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1 && \
+  /tmp/sfdx/install
+
 RUN cd /tmp && \
   curl -L --silent \
   `curl --silent "https://api.github.com/repos/cdr/code-server/releases/latest" \

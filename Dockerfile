@@ -17,6 +17,7 @@ RUN apt-get update \
     ssh \
     sudo \
     vim \
+    wget \
     xz-utils \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
@@ -45,7 +46,8 @@ RUN cd /tmp && \
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
   apt-get install -y nodejs && \
   mkdir -p /tmp/sfdx && \
-  curl -SsL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1 && \
+  wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz && \
+  tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1 && \
   /tmp/sfdx/install
 
 RUN cd /tmp && \

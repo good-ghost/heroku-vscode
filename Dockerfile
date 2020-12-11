@@ -5,7 +5,6 @@ RUN apt-get update \
     apt-transport-https \
     ca-certificates \
     curl \
-    default-jre-headless \
     dirmngr \
     dumb-init \
     htop \
@@ -14,11 +13,14 @@ RUN apt-get update \
     nano \
     git \
     lsb-release \
-    openjdk-11-jre \
     procps \
     ssh \
     sudo \
     vim \
+  && mkdir -p /usr/share/man/man1
+  && apt-get install -y \
+    default-jre-headless \
+    openjdk-11-jre \
   && rm -rf /var/lib/apt/lists/*
 
 # https://wiki.debian.org/Locale#Manually

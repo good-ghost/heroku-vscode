@@ -1,14 +1,19 @@
-FROM debian:10
+FROM debian:buster-slim
 
 RUN apt-get update \
  && apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
     curl \
+    dirmngr \
     dumb-init \
     htop \
     locales \
     man \
     nano \
     git \
+    lsb-release \
+    openjdk-11-jre \
     procps \
     ssh \
     sudo \
@@ -32,6 +37,10 @@ RUN curl -SsL https://github.com/boxboat/fixuid/releases/download/v0.4/fixuid-0.
     mkdir -p /etc/fixuid && \
     printf "user: coder\ngroup: coder\n" > /etc/fixuid/config.yml
     
+RUN cd /tmp && \
+  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && \
+  apt-get install -y nodejs
+  
 RUN cd /tmp && \
   curl -L --silent \
   `curl --silent "https://api.github.com/repos/cdr/code-server/releases/latest" \

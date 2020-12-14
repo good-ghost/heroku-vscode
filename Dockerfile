@@ -60,11 +60,11 @@ RUN cd /tmp && \
   mv code-server* /usr/local/lib/code-server && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 
-RUN cd /tmp && \
-  wget -O salesforce.salesforcedx-vscode-expanded-50.8.0.vsix https://marketplace.visualstudio.com/_apis/public/gallery/publishers/salesforce/vsextensions/salesforcedx-vscode-expanded/50.8.0/vspackage && \
-  code-server --install-extension salesforce.salesforcedx-vscode-expanded-50.8.0.vsix && \
-  wget -O HugoOM.sfdx-autoheader-0.7.1.vsix https://marketplace.visualstudio.com/_apis/public/gallery/publishers/HugoOM/vsextensions/sfdx-autoheader/0.7.1/vspackage && \
-  code-server --install-extension HugoOM.sfdx-autoheader-0.7.1.vsix
+# VSCode extensions
+ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
+RUN mkdir -p /home/coder/.local/share/code-server/extensions/ \
+  && code-server --install-extension salesforce.salesforcedx-vscode-expanded \
+  && code-server --install-extension HugoOM.sfdx-autoheader
 
 ENV PORT=8080
 EXPOSE 8080

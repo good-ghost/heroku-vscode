@@ -62,7 +62,7 @@ RUN cd /tmp && \
 
 RUN cd /tmp && \
   wget https://marketplace.visualstudio.com/_apis/public/gallery/publishers/salesforce/vsextensions/salesforcedx-vscode-expanded/50.8.0/vspackage && \
-  code-server --install-extension salesforce.salesforcedx-vscode-expanded-50.8.0.vsix &&
+  code-server --install-extension salesforce.salesforcedx-vscode-expanded-50.8.0.vsix && \
   wget https://marketplace.visualstudio.com/_apis/public/gallery/publishers/HugoOM/vsextensions/sfdx-autoheader/0.7.1/vspackage && \
   code-server --install-extension HugoOM.sfdx-autoheader-0.7.1.vsix
 

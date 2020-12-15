@@ -61,7 +61,6 @@ RUN cd /tmp && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 
 # VSCode extensions
-RUN mkdir -p /home/coder/.local/share/code-server/extensions/
 ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
 RUN code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension emmanuelbeziat.vscode-great-icons \
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension dbaeumer.vscode-eslint \
@@ -78,7 +77,6 @@ RUN code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extension
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforce-vscode-slds \
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-expanded \
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension HugoOM.sfdx-autoheader
-#  && mv /home/coder/.local/share/code-server/extensions/* /usr/local/lib/code-server/lib/vscode/extensions/
 
 ENV PORT=8080
 EXPOSE 8080

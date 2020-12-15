@@ -78,6 +78,8 @@ RUN code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extension
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-expanded \
   && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension HugoOM.sfdx-autoheader
 
+RUN echo 'y' | sfdx plugins:install sfpowerkit
+
 ENV PORT=8080
 EXPOSE 8080
 USER coder

@@ -61,9 +61,9 @@ RUN cd /tmp && \
   ln -s /usr/local/lib/code-server/code-server /usr/local/bin/code-server
 
 # VSCode extensions
+RUN mkdir -p /home/coder/.local/share/code-server/extensions/
 ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
-RUN mkdir -p /home/coder/.local/share/code-server/extensions/ \
-  && code-server --install-extension emmanuelbeziat.vscode-great-icons \
+RUN code-server --install-extension emmanuelbeziat.vscode-great-icons \
   && code-server --install-extension dbaeumer.vscode-eslint \
   && code-server --install-extension esbenp.prettier-vscode \
   && code-server --install-extension redhat.vscode-xml \

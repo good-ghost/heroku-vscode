@@ -63,22 +63,22 @@ RUN cd /tmp && \
 # VSCode extensions
 RUN mkdir -p /home/coder/.local/share/code-server/extensions/
 ENV SERVICE_URL https://marketplace.visualstudio.com/_apis/public/gallery
-RUN code-server --install-extension emmanuelbeziat.vscode-great-icons \
-  && code-server --install-extension dbaeumer.vscode-eslint \
-  && code-server --install-extension esbenp.prettier-vscode \
-  && code-server --install-extension redhat.vscode-xml \
-  && code-server --install-extension salesforce.salesforcedx-vscode-core \
-  && code-server --install-extension salesforce.salesforcedx-vscode-apex \
-  && code-server --install-extension salesforce.salesforcedx-vscode-apex-debugger \
-  && code-server --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger \
-  && code-server --install-extension salesforce.salesforcedx-vscode-lightning \
-  && code-server --install-extension salesforce.salesforcedx-vscode-lwc \
-  && code-server --install-extension salesforce.salesforcedx-vscode-visualforce \
-  && code-server --install-extension salesforce.salesforcedx-vscode-soql \
-  && code-server --install-extension salesforce.salesforce-vscode-slds \
-  && code-server --install-extension salesforce.salesforcedx-vscode-expanded \
-  && code-server --install-extension HugoOM.sfdx-autoheader \
-  && mv /home/coder/.local/share/code-server/extensions/* /usr/local/lib/code-server/lib/vscode/extensions/
+RUN code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension emmanuelbeziat.vscode-great-icons \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension dbaeumer.vscode-eslint \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension esbenp.prettier-vscode \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension redhat.vscode-xml \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-core \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-apex \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-apex-debugger \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-lightning \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-lwc \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-visualforce \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-soql \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforce-vscode-slds \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension salesforce.salesforcedx-vscode-expanded \
+  && code-server --extensions-dir /usr/local/lib/code-server/lib/vscode/extensions --install-extension HugoOM.sfdx-autoheader
+#  && mv /home/coder/.local/share/code-server/extensions/* /usr/local/lib/code-server/lib/vscode/extensions/
 
 ENV PORT=8080
 EXPOSE 8080
